@@ -1,13 +1,12 @@
 const express = require('express');
 const app = express();
-const mongodb = require('mongodb');
+// const mongodb = require('mongodb');
 const {getCharacters, getCharacterInfo} = require('./app');
 const port = 3000;
 // const uri = "mongodb+srv://dbUser:vmmHalDCKPquAgcp@cluster0.epmuk.mongodb.net/test?retryWrites=true&w=majority";
-// mongodb.MongoClient.connect(uri,).then( async el => {
+// mongodb.MongoClient.connect(uri,).then(el => {
 //     console.log(el.isConnected());
 //     let dbs = await el.db().admin().listDatabases();
-//     console.log(dbs)
 
 // })
 
