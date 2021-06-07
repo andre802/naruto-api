@@ -52,7 +52,7 @@ const getPersonalInfo = (body) => {
     }
     let info = parse(body).querySelectorAll("th").filter(el => {
         return (
-            ((el.nextElementSibling || el.innerText.includes("Nature Type"))&& el.innerText.toLowerCase().trim() in pi)
+            ((el.nextElementSibling || el.innerText.includes("Nature Type")) && el.innerText.toLowerCase().trim() in pi)
         )
     });
     let weight, height = [];
@@ -79,13 +79,13 @@ const getPersonalInfo = (body) => {
             pi["clan"] = i.nextElementSibling.innerText.trim().split("\n")
         } else if (i.innerText.includes("Team")) {
             pi["team"] = i.nextElementSibling.innerText.trim().split("\n")
-        }  else if (i.innerText.includes("Kekkei Genkai")) {
+        } else if (i.innerText.includes("Kekkei Genkai")) {
             pi["kekkei genkai"] = i.nextElementSibling.innerText.trim().split("\n")
-        }  else if (i.innerText.includes("Ninja Rank")) {
+        } else if (i.innerText.includes("Ninja Rank")) {
             pi["ninja rank"] = i.nextElementSibling.innerText.trim().split("\n")
         } else if (i.innerText.includes("Nature Type")) {
             pi["nature type"] = i.parentNode.parentNode.querySelectorAll("li").map(el => el.innerText.trim())
-            
+
         }
     })
 
@@ -164,4 +164,63 @@ const getCharacterInfo = (name) => {
         })
 }
 
-module.exports = { getCharacters, getCharacterInfo }
+const getJutsuInfo = (jutsu) => {
+    let url = `https://naruto.fandom.com/wiki/${jutsu}`;
+    let jutsuInfo = {
+        "name": "",
+        "rank": "",
+        "classification": "",
+        "handsigns": "",
+        "info": "",
+        "image": "",
+        "users": [],
+        "derivedJutsu": [],
+        "parentJutsu": []
+    }
+    return fetch(url)
+        .then(url => url.text())
+        .then(data => {
+            let summary = "";
+            let root = parse(data);
+            let image = root.querySelector(".pi-image-thumbnail").attributes.src;
+            let jutsuData = root.querySelector("aside").querySelectorAll("div.pi-item").filter(el => (el.attributes["data-source"]))
+            let rank = jutsuData.filter(el => el.attributes["data-source"] == "jutsu rank")[0].querySelector("div").innerText;
+            let classification = jutsuData.filter(el => el.attributes["data-source"] == "jutsu classification")[0].querySelector("div").innerText;
+            try {
+                let handSigns = jutsuData.filter(el => el.attributes["data-source"] == "hand signs")[0].querySelector("div").innerText;
+                jutsuInfo["handsigns"] = he.decode(handSigns);
+
+
+            } catch (err) {
+                console.error(err);
+            }
+            try {
+                let derivedJutsu = root.querySelectorAll('div.pi-item[data-source="jutsu media"] div.pi-data-value div ul li a').map(el => el.innerText);
+                jutsuInfo["derivedJutsu"] = derivedJutsu;
+            } catch (err) {
+                console.error(err)
+            }
+            try {
+                let parentJutsu = root.querySelectorAll('div.pi-item[data-source="parent jutsu"] div.pi-data-value div ul li').map(el => el.innerText);
+                jutsuInfo["parentJutsu"] = parentJutsu;
+
+            } catch (err) {
+                console.error(err);
+            }
+            let users = root.querySelectorAll('div.pi-item[data-source="users"] div.pi-data-value div ul li').map(el => el.innerText);
+            root.querySelectorAll("ul, img, table, aside, .toc, p >p , h2 > p").forEach(el => el.remove())
+            // root.querySelector("div").childNodes.map(el => {
+            //     info += he.decode(el.innerText.trim())
+            //     console.log(info)
+            // })
+            summary = he.decode(root.querySelectorAll(".mw-parser-output *")[0].innerText.trim());
+            jutsuInfo["info"] = summary;
+            jutsuInfo["users"] = users;
+            jutsuInfo["name"] = jutsu;
+            jutsuInfo["classification"] = classification;
+            jutsuInfo["rank"] = rank;
+            jutsuInfo["image"] = image.replace("/revision/latest/scale-to-width-down/350", "");
+            return jutsuInfo;
+        })
+}
+module.exports = { getCharacters, getCharacterInfo, getJutsuInfo }
