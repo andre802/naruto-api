@@ -1,6 +1,7 @@
 const Character = require('./Character');
 const fetch = require('node-fetch');
 const {parse} = require('node-html-parser');
+const he = require('he');
 let Characters = {};
 /**
  * Returns a promise containing names of characters
@@ -22,7 +23,27 @@ const getCharacters = async () => {
 const parseCharacterNames = (body) => {
     return parse(body).querySelector(".smw-columnlist-container").querySelectorAll('li').map(el=> el.innerText.trim());
 }
+const getPersonalInfo = (body) => {
+    let info = parse(body).querySelectorAll("th").filter(el => {
+        return (
+        el.innerText.includes("Birthdate") || el.innerText.includes("Sex") ||
+        el.innerText.includes("Age") || el.innerText.includes("Height") ||
+        el.innerText.includes("Weight")
+        )
+    }).map(el => el.nextElementSibling.innerText.trim());
+    let weight = he.decode(info[4]);
+    weight = weight.replaceAll("<br />","").replaceAll(" kg", "kg ").split('\n')
+    let height = he.decode(info[3]);
+    height= height.replaceAll("<br />","").replaceAll(" cm", "cm ").split('\n')
 
+    return ({
+        "birthday": info[0],
+        "sex": info[1],
+        "age": he.decode(info[2]).split('\n'),
+        "height": height,
+        "weight": weight
+    })
+}
 const getSummary = (data) => {
     let summary = "";
     const root = parse(data);
@@ -52,11 +73,11 @@ const getJutsu = (data) => {
     }
     return jutsu;
 }
-const getCharacterImages = (data) => {
+const getCharacterImages = (data) => { 
     return [parse(data).querySelectorAll(".imagecell img").map(img => img.attributes.src)];
 }
  const getCharacterInfo = (name) => {
-    Characters[name] = {jutsu: [], summary: "", images: []};
+    Characters[name] = {jutsu: [], summary: "", images: [], personalInfo: {}};
     return fetch(`https://naruto.fandom.com/wiki/${name}`)
     .then(res => res.text())
     .then((data) => {
@@ -65,6 +86,7 @@ const getCharacterImages = (data) => {
         Characters[name]["summary"] = summary.toString();
         Characters[name]["jutsu"] = jutsu;
         Characters[name]["images"] = getCharacterImages(data);
+        Characters[name]["personalInfo"] = getPersonalInfo(data);
         return Characters[name];
     })  
  }
