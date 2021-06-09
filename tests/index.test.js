@@ -1,5 +1,6 @@
 const app = require('../lib/routes/server');
 const supertest = require('supertest');
+jest.setTimeout(10000)
 
 test("GET /characters", async () => {
     await supertest(app).get('/characters')
@@ -24,5 +25,34 @@ test("GET /clans", async () => {
             expect(resp.body.names[0]).toBe("Aburame Clan");
             expect(resp.body.names[resp.body.length - 1]).toBe("Ōtsutsuki Clan");
         })
+})
+
+test("GET /characters/:character", async () => {
+    let names = await supertest(app).get('/characters').
+                then(resp => {
+                   return resp.body.names;
+                });
+    names.forEach(async name => {
+                    let url = `/characters/${encodeURI(name)}`;
+                    await supertest(app).get(url).expect(200)
+                    .expect(Array.isArray(resp.body.images))
+            })
+})
+
+test("GET /clans/:clan", async () => {
+    let names = await supertest(app).get('/clans').
+                then(resp => {
+                   return resp.body.names;
+                })
+                .catch(e => {
+                    console.error(e);
+                })
+    names.forEach(async name => {
+                    let url = `/clans/${encodeURI(name)}`;
+                    await supertest(app).get(url).expect(200)
+                    .then(resp => {
+                        expect(Array.isArray(resp.body.images))
+                    })
+            })
 })
 
