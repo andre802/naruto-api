@@ -14,9 +14,10 @@
     "express": "^4.17.1",
     "he": "^1.2.0",
     "mongodb": "^3.6.9",
+    "mongoose": "^5.12.13",
+    "node": "16.1.0",
     "node-fetch": "^2.6.1",
-    "node-html-parser": "^3.3.4",
-    "node": "16.1.0"
+    "node-html-parser": "^3.3.4"
   },
   "devDependencies": {
     "jest": "^27.0.4",
