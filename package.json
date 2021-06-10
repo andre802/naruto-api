@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --watch",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "node seed.js"
   },
   "keywords": [],
   "author": "Justin Reeves",

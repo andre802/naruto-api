@@ -2,18 +2,18 @@ const app = require('../lib/routes/server');
 const supertest = require('supertest');
 jest.setTimeout(50000)
 
-test("GET /characters", async () => {
-    await supertest(app).get('/characters')
-        .expect(200)
-        .then(resp => {
-            // Check type and length
-            expect(resp.body.length).toEqual(606);
-            expect(Array.isArray(resp.body.names).valueOf)
-            // Check data
-            expect(resp.body.names[0]).toBe("Ten-Tails")
-            expect(resp.body.names[resp.body.length-1]).toBe("Zōri")
-        })
-})
+// test("GET /characters", async () => {
+//     await supertest(app).get('/characters')
+//         .expect(200)
+//         .then(resp => {
+//             // Check type and length
+//             expect(resp.body.length).toEqual(606);
+//             expect(Array.isArray(resp.body.names).valueOf)
+//             // Check data
+//             expect(resp.body.names[0]).toBe("Ten-Tails")
+//             expect(resp.body.names[resp.body.length-1]).toBe("Zōri")
+//         })
+// })
 
 // test("GET /clans", async () => {
 //     await supertest(app).get('/clans')
@@ -27,19 +27,19 @@ test("GET /characters", async () => {
 //         })
 // })
 
-test("GET /characters/:character", async () => {
-    let names = await supertest(app).get('/characters').
-        then(resp => {
-            return resp.body.names;
-        });
-    names.forEach(async name => {
-        let url = `/characters/${encodeURI(name)}`;
-        await supertest(app).get(url).expect(200)
-            .then(resp => {
-                expect(Array.isArray(resp.body.images))
-            })
-    })
-})
+// test("GET /characters/:character", async () => {
+//     let names = await supertest(app).get('/characters').
+//         then(resp => {
+//             return resp.body.names;
+//         });
+//     names.forEach(async name => {
+//         let url = `/characters/${encodeURI(name)}`;
+//         await supertest(app).get(url).expect(200)
+//             .then(resp => {
+//                 expect(Array.isArray(resp.body.images))
+//             })
+//     })
+// })
 
 // test("GET /clans/:clan", async () => {
 //     let names = await supertest(app).get('/clans').
@@ -67,18 +67,18 @@ test("GET /characters/:character", async () => {
 //         })
 // })
 
-// test("GET /jutsus/:jutsu", async () => {
-//     let jutsus = await supertest(app).get('/jutsus')    
-//                 .then(resp => resp.body.names)
-//     jutsus.forEach(async jutsu => {
-//         let url = `/jutsus/${encodeURIComponent(jutsu)}`;
-//         await supertest(app).get(url)
-//             .expect(200)
-//             .then(resp => resp.body)
-//             .then(body => {
-//                 expect(Array.isArray(body.users))
-//             })
+test("GET /jutsus/:jutsu", async () => {
+    let jutsus = await supertest(app).get('/jutsus')    
+                .then(resp => resp.body.names)
+    jutsus.forEach(async jutsu => {
+        let url = `/jutsus/${encodeURIComponent(jutsu)}`;
+        await supertest(app).get(url)
+            .expect(200)
+            .then(resp => resp.body)
+            .then(body => {
+                expect(Array.isArray(body.images))
+            })
 
-//     })
-// })
+    })
+})
 
