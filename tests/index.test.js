@@ -56,3 +56,27 @@ test("GET /clans/:clan", async () => {
             })
 })
 
+test("GET /jutsus", async () => {
+    await supertest(app).get('/jutsus')
+        .then(resp => resp.body)
+        .then(body => {
+            expect(body.length == 796)
+            expect(Array.isArray(body.names))
+        })
+})
+
+test("GET /jutsus/:jutsu", async () => {
+    let jutsus = await supertest(app).get('/jutsus')    
+                .then(resp => resp.body.names)
+    jutsus.forEach(async jutsu => {
+        let url = `/jutsus/${encodeURIComponent(jutsu)}`;
+        await supertest(app).get(url)
+            .expect(200)
+            .then(resp => resp.body)
+            .then(body => {
+                expect(Array.isArray(body.users))
+            })
+            
+    })
+})
+
