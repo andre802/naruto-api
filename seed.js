@@ -1,63 +1,74 @@
 require('dotenv').config()
+
 const mongoose = require('mongoose');
 const { getCharacters, getCharacterInfo } = require('./lib/services/characterInfo');
 const { getClans, getClanInfo } = require('./lib/services/clanInfo');
 const { getJutsus, getJutsuInfo } = require('./lib/services/jutsuInfo');
-const {characterSchema} =require('./lib/models/Character');
-const {clanSchema} = require('./lib/models/Clan');
-const {jutsuSchema} = require('./lib/models/Jutsu');
+const { CharacterModel } = require('./lib/models/Character');
+const { ClanModel } = require('./lib/models/Clan');
+const { JutsuModel } = require('./lib/models/Jutsu');
 
-mongoose.connect(process.env.mongoURL,{ useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
+mongoose.connect(process.env.mongoURL, { useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'))
 
-const Character = mongoose.model("Character", characterSchema);
-const Jutsu = mongoose.model("Jutsu", jutsuSchema);
-const Clan = mongoose.model("Clan", clanSchema);
+/**
+ * Populates the characters collections.
+ */
 const populateCharacters = async () => {
-    let charNames = await getCharacters();
-    charNames.names.forEach(async (name) => {
-        Character.find({name: name}, name, async (err, docs) => {
-            if (docs.length == 0) {
-                let info = await getCharacterInfo(name);
-                const char = new Character(info);
-                char.save((err, char) => {
-                    if (err) console.error(err);
-                });
-            }
+    getCharacters()
+        .then(body => body.names)
+        .then(names => {
+            names.forEach(async (name) => {
+                CharacterModel.find({ name: name }, name, async (err, docs) => {
+                    if (!docs.length) {
+                        let characters = await getCharacterInfo(name    );
+                        CharacterModel.create(characters);
+                    }
+                })
+            })
         })
-    })
+
 }
+/**
+ * Populates the jutsus collections.
+ */
 const populateJutsus = async () => {
-
-
-    let jutsuNames = await getJutsus();
-    jutsuNames.names.forEach(async (name) => {
-        let info = await getJutsuInfo(name);
-        const jutsu = new Jutsu(info);
-        jutsu.save((err, char) => {
-            if (err) console.error(err);
-        })
-    })
-}
-const populateClans = async () => {
-    getClans()
-        .then(body => {
-            body.names.forEach(async name => {
-                let info = await getClanInfo(name);
-                const clan = new Clan(info);
-                clan.save((err, clan) => {
-                    if (err) console.error(err);
+    getJutsus()
+        .then(body => body.names)
+        .then(names => {
+            names.forEach(async (name) => {
+                JutsuModel.find({ name: name }, name, async (err, docs) => {
+                    if (!docs.length) {
+                        let jutsu = await getJutsuInfo(name);
+                        JutsuModel.create(jutsu);
+                    }
                 })
             })
         })
 }
+/**
+ * Populates the clans collections.
+ */
+const populateClans = async () => {
+    getClans()
+        .then(body => body.names)
+        .then(names => {
+            names.forEach(name => async name => {
+                ClanModel.find({ name: name }, name, async (err, docs) => {
+                    if (!docs.length) {
+                        let clan = await getClanInfo(name);
+                        ClanModel.create(clan);
+                    }
+                })
+            })
+        })
+}
+
 db.once('open', async () => {
     console.log("Connected");
-    // populateCharacters()
-    // populateJutsus();
-    // populateClans();
-
-
+    await populateCharacters()
+    await populateJutsus();
+    await populateClans();
+    
 })
-module.exports = { Character, Jutsu, Clan };

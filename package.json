@@ -1,12 +1,13 @@
 {
   "name": "naruto-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Naruto API.",
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --watch",
     "dev": "nodemon index.js",
-    "buildDB": "node seed.js"
+    "buildDB": "node seed.js",
+    "run": "node index.js"
   },
   "keywords": [],
   "author": "Justin Reeves",
