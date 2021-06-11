@@ -18,7 +18,8 @@
     "mongoose": "^5.12.13",
     "node": "16.1.0",
     "node-fetch": "^2.6.1",
-    "node-html-parser": "^3.3.4"
+    "node-html-parser": "^3.3.4",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
     "jest": "^27.0.4",
