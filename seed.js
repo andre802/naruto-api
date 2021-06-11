@@ -3,50 +3,14 @@ const mongoose = require('mongoose');
 const { getCharacters, getCharacterInfo } = require('./lib/services/characterInfo');
 const { getClans, getClanInfo } = require('./lib/services/clanInfo');
 const { getJutsus, getJutsuInfo } = require('./lib/services/jutsuInfo');
-mongoose.connect(process.env.mongoURI,{ useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
+const {characterSchema} =require('./lib/models/Character');
+const {clanSchema} = require('./lib/models/Clan');
+const {jutsuSchema} = require('./lib/models/Jutsu');
+
+mongoose.connect(process.env.mongoURL,{ useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'))
-const characterSchema = new mongoose.Schema({
-    name: String,
-    jutsu: Array,
-    summary: String,
-    images: Array,
-    personalInfo: {
-        birthdate: 'String',
-        sex: 'String',
-        age: 'Array',
-        height: 'Array',
-        weight: 'Array',
-        affiliation: 'Array',
-        status: 'String',
-        clan: 'Array',
-        team: 'Array',
-        "kekkei genkai": 'Array',
-        "ninja rank": 'Array',
-        "nature type": 'Array'
-    }
-})
-const jutsuSchema = new mongoose.Schema({
-    name: String,
-    rank: String,
-    classification: Array,
-    handsign: String,
-    summary: String,
-    image: String,
-    users: Array,
-    derivedJutsu: Array,
-    parentJutsu: Array,
-    relatedJutsu: Array
-})
-const clanSchema = new mongoose.Schema({
-    name: String,
-    summary: String,
-    affiliation: Array,
-    image: String,
-    members: Array,
-    jutsu: Array
 
-})
 const Character = mongoose.model("Character", characterSchema);
 const Jutsu = mongoose.model("Jutsu", jutsuSchema);
 const Clan = mongoose.model("Clan", clanSchema);
