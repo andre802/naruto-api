@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles --watch",
     "dev": "nodemon index.js",
-    "build": "node seed.js"
+    "build": "node seed.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Justin Reeves",
@@ -18,8 +19,7 @@
     "mongoose": "^5.12.13",
     "node": "16.1.0",
     "node-fetch": "^2.6.1",
-    "node-html-parser": "^3.3.4",
-    "underscore": "^1.13.1"
+    "node-html-parser": "^3.3.4"
   },
   "devDependencies": {
     "jest": "^27.0.4",
