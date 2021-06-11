@@ -1,9 +1,9 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const { getCharacters, getCharacterInfo } = require('./lib/services/characterInfo');
 const { getClans, getClanInfo } = require('./lib/services/clanInfo');
 const { getJutsus, getJutsuInfo } = require('./lib/services/jutsuInfo');
-
-mongoose.connect('mongodb://localhost:27017/naruto-api', { useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
+mongoose.connect(process.env.mongoURI,{ useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'))
 const characterSchema = new mongoose.Schema({
