@@ -1,4 +1,4 @@
-const app = require('../lib/routes/server');
+const {app, mongoose} = require('../lib/routes/server');
 const supertest = require('supertest');
 jest.setTimeout(50000)
 
@@ -10,20 +10,9 @@ jest.setTimeout(50000)
 //             expect(resp.body.length).toEqual(606);
 //             expect(Array.isArray(resp.body.names).valueOf)
 //             // Check data
-//             expect(resp.body.names[0]).toBe("Ten-Tails")
-//             expect(resp.body.names[resp.body.length-1]).toBe("Zōri")
-//         })
-// })
-
-// test("GET /clans", async () => {
-//     await supertest(app).get('/clans')
-//         .expect(200)
-//         .then(resp => {
-//             expect(resp.body.length).toEqual(50);
-//             expect(Array.isArray(resp.body.names).valueOf);
-
-//             expect(resp.body.names[0]).toBe("Aburame Clan");
-//             expect(resp.body.names[resp.body.length - 1]).toBe("Ōtsutsuki Clan");
+//             expect(resp.body.names[0]).toBe("A (First Raikage)")
+//             // Not 'Zori' due to ordering with special characters
+//             expect(resp.body.names[resp.body.length-1]).toBe("Ūhei")
 //         })
 // })
 
@@ -39,6 +28,17 @@ jest.setTimeout(50000)
 //                 expect(Array.isArray(resp.body.images))
 //             })
 //     })
+// })
+// test("GET /clans", async () => {
+//     await supertest(app).get('/clans')
+//         .expect(200)
+//         .then(resp => {
+//             expect(resp.body.length).toEqual(50);
+//             expect(Array.isArray(resp.body.names).valueOf);
+
+//             expect(resp.body.names[0]).toBe("Aburame Clan");
+//             expect(resp.body.names[resp.body.length - 1]).toBe("Ōtsutsuki Clan");
+//         })
 // })
 
 // test("GET /clans/:clan", async () => {
@@ -58,14 +58,14 @@ jest.setTimeout(50000)
 //             })
 // })
 
-// test("GET /jutsus", async () => {
-//     await supertest(app).get('/jutsus')
-//         .then(resp => resp.body)
-//         .then(body => {
-//             expect(body.length == 796)
-//             expect(Array.isArray(body.names))
-//         })
-// })
+test("GET /jutsus", async () => {
+    await supertest(app).get('/jutsus')
+        .then(resp => resp.body)
+        .then(body => {
+            expect(body.length == 796)
+            expect(Array.isArray(body.names))
+        })
+})
 
 test("GET /jutsus/:jutsu", async () => {
     let jutsus = await supertest(app).get('/jutsus')    
@@ -81,4 +81,7 @@ test("GET /jutsus/:jutsu", async () => {
 
     })
 })
-
+afterAll(async () => {
+    await mongoose.connection.close()
+    
+})

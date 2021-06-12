@@ -15,7 +15,7 @@ Development: jest, nodemon, supertest
 ---
 ### Routes
 
-All routes are GET routes
+All routes are GET routes.
 
 > * */characters*
 

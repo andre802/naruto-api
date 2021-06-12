@@ -8,7 +8,7 @@ const { CharacterModel } = require('./lib/models/Character');
 const { ClanModel } = require('./lib/models/Clan');
 const { JutsuModel } = require('./lib/models/Jutsu');
 
-mongoose.connect(process.env.mongoURL, { useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true, reconnectTries: 5 })
+mongoose.connect(process.env.mongoURL, { useNewUrlParser: true, socketTimeoutMS: 60000, keepAlive: true})
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'))
 
@@ -54,10 +54,11 @@ const populateClans = async () => {
     getClans()
         .then(body => body.names)
         .then(names => {
-            names.forEach(name => async name => {
+            names.forEach(async name => {
                 ClanModel.find({ name: name }, name, async (err, docs) => {
                     if (!docs.length) {
                         let clan = await getClanInfo(name);
+                        console.log(clan);
                         ClanModel.create(clan);
                     }
                 })
@@ -67,8 +68,8 @@ const populateClans = async () => {
 
 db.once('open', async () => {
     console.log("Connected");
-    await populateCharacters()
-    await populateJutsus();
-    await populateClans();
+    // await populateCharacters()
+    // await populateJutsus();
+    // await populateClans();
     
 })
