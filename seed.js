@@ -68,8 +68,8 @@ const populateClans = async () => {
 
 db.once('open', async () => {
     console.log("Connected");
-    await populateCharacters()
-    // await populateJutsus();
+    // await populateCharacters()
+    await populateJutsus();
     // await populateClans();
     
 })
