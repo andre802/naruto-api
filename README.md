@@ -27,7 +27,8 @@ All routes are GET routes.
 
 > * */characters/affiliation/:affiliation*
 
-> Gets list of characters of the specified affiliation (Akatsuki, Kara, etc). Try (here)[https://naruto--api.herokuapp.com/characters/affiliation/Akatsuki]
+> Gets list of characters of the specified affiliation (Akatsuki, Kara, etc). Try [here]
+(https://naruto--api.herokuapp.com/characters/affiliation/Akatsuki)
 
 > * */characters/nature/:nature*
 
@@ -39,7 +40,7 @@ All routes are GET routes.
 
 > * */characters/kekkeiGenkai/:kekkeiGenkai*
 
-> Gets list of characters of the specified kekkei genkai (Sharingan, Boil Release, etc). Try (here)[https://naruto--api.herokuapp.com/characters/kekkeigenkai/Sharingan]
+> Gets list of characters of the specified kekkei genkai (Sharingan, Boil Release, etc). Try [here](https://naruto--api.herokuapp.com/characters/kekkeigenkai/Sharingan)
 
 > * */characters/classification/:classification*
 
@@ -63,7 +64,7 @@ All routes are GET routes.
 
 > * */jutsus/:jutsu*
 
-> Gets a single jutsu, includes information such as users, summary, photo, and so forth. Try (here)[https://naruto--api.herokuapp.com/jutsus/Rasengan]
+> Gets a single jutsu, includes information such as users, summary, photo, and so forth. Try [here](https://naruto--api.herokuapp.com/jutsus/Rasengan)
 
 > * */jutsus/nature/:nature*
 
