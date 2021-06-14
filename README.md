@@ -27,8 +27,7 @@ All routes are GET routes.
 
 > * */characters/affiliation/:affiliation*
 
-> Gets list of characters of the specified affiliation (Akatsuki, Kara, etc). Try [here]
-(https://naruto--api.herokuapp.com/characters/affiliation/Akatsuki)
+> Gets list of characters of the specified affiliation (Akatsuki, Kara, etc). Try [here](https://naruto--api.herokuapp.com/characters/affiliation/Akatsuki)
 
 > * */characters/nature/:nature*
 
