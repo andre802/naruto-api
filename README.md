@@ -21,22 +21,58 @@ All routes are GET routes.
 
 > Gets list of all characters and length of list.
 
-> * /characters:character
+> * */characters/:character*
 
 > Gets a single character, includes information such as images, jutsus, description, affiliation and so forth.
 
-> * /clans
+> * */characters/affiliation/:affiliation*
+
+> Gets list of characters of the specified affiliation (Akatsuki, Kara, etc). Try (here)[https://naruto--api.herokuapp.com/characters/affiliation/Akatsuki]
+
+> * */characters/nature/:nature*
+
+> Retrieves characters of the specified nature type.
+
+> * */characters/rank/:rank*
+
+> Retrieves characters of the specified rank.
+
+> * */characters/kekkeiGenkai/:kekkeiGenkai*
+
+> Gets list of characters of the specified kekkei genkai (Sharingan, Boil Release, etc). Try (here)[https://naruto--api.herokuapp.com/characters/kekkeigenkai/Sharingan]
+
+> * */characters/classification/:classification*
+
+> Gets list of characters of the specified classification.
+
+> * */clans*
 
 > Gets list of all clans and length of list.
 
-> * /clans:clan
+> * */clans:clan*
 
 > Gets clan specified by parameter.
 
-> * /jutsus
+> * */clans/affiliation/:affiliation*
+
+> Gets list of clans of the specified affiliation.
+
+> * */jutsus*
 
 > Gets list of all jutsu names and length of list.
 
-> * /jutsu:jutsu
+> * */jutsus/:jutsu*
 
-> Gets a single jutsu, includes information such as users, summary, photo, and so forth.
+> Gets a single jutsu, includes information such as users, summary, photo, and so forth. Try (here)[https://naruto--api.herokuapp.com/jutsus/Rasengan]
+
+> * */jutsus/nature/:nature*
+
+> Retrieve list of jutsus of the specified nature type. Try [here](https://naruto--api.herokuapp.com/jutsus/nature/Water%20Release)
+
+> * */jutsus/classification/:classification*
+
+> Retrieve list of jutsus of the specified classification. (Genjutsu, Taijutsu, etc)
+
+> * */jutsus/rank/:rank*
+
+> Retrieve list of jutsus of the specified rank. (S-rank, A-rank, etc)
