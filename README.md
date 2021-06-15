@@ -8,7 +8,7 @@ The information was parsed from the fandom website [naruto.wikia.com](https://ww
 ---
 ### Technologies used
 
-Production: Node, Express, note-fetch, node-html parser, mongodb, moongoose, dotenv, he, doenv
+Production: Node, Express, note-fetch, node-html parser, mongodb, redis, heroku, moongoose, dotenv, he, doenv
 
 Development: jest, nodemon, supertest
 
