@@ -1,4 +1,8 @@
-node_modules
+node_modules/
 config.js
 .env
+<<<<<<< HEAD
 .parcel-cache/
+=======
+.parcel-cache/
+>>>>>>> frontend

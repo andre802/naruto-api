@@ -1,0 +1,18 @@
+#details {
+    display: grid;
+    grid-template-areas: "header header"
+    "pic summary"
+    "pic summary"
+    
+}
+#name {
+    grid-area: header;
+    text-align: center;
+}
+#left {
+    grid-area: pic;
+}
+#right {
+    grid-area: summary;
+}
+/*# sourceMappingURL=style.6c949606.css.map */
