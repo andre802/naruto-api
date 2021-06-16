@@ -1,0 +1,39 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js";
+  const Character = ({name}) => {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "character",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 4,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5,
+          columnNumber: 13
+        }
+      }, name))
+    );
+  };
+  _c = Character;
+  exports.default = Character;
+  var _c;
+  $RefreshReg$(_c, "Character");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

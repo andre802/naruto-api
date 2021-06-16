@@ -1,0 +1,27 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js";
+const Character = ({name}) => {
+  return (
+    /*#__PURE__*/React.createElement("div", {
+      className: "character",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 4,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 5,
+        columnNumber: 13
+      }
+    }, name))
+  );
+};
+_c = Character;
+exports.default = Character;
+var _c;
+$RefreshReg$(_c, "Character");

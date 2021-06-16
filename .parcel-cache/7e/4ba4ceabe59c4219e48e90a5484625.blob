@@ -1,0 +1,24 @@
+var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js";
+const Character = ({props}) => {
+  return (
+    /*#__PURE__*/React.createElement("div", {
+      className: "character",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 4,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/React.createElement("h2", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 5,
+        columnNumber: 13
+      }
+    }))
+  );
+};
+_c = Character;
+var _c;
+$RefreshReg$(_c, "Character");

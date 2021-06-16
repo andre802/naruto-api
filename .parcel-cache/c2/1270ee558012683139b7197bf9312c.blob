@@ -1,0 +1,25 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _s = $RefreshSig$();
+  const Character = ({name, summary, images, jutsu, personalInfo}) => {
+    _s();
+    _react.useEffect(() => {
+      console.log(name);
+    }, []);
+  };
+  _s(Character, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+  _c = Character;
+  exports.default = Character;
+  var _c;
+  $RefreshReg$(_c, "Character");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

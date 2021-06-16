@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto API</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    <script src="57c6b7666d1ce2813029106027f18e88" data-parcel-key="cde4e9f2d54b6d1739c1e593aa0c357f">
+    </script>
+
+</body>
+
+</html>

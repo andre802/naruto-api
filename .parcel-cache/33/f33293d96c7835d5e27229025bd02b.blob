@@ -1,0 +1,119 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _react = require('react');
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactDom = require('react-dom');
+  var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
+  var _Character = require('./Character');
+  var _CharacterDefault = _parcelHelpers.interopDefault(_Character);
+  var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/index.js", _s = $RefreshSig$();
+  const App = () => {
+    _s();
+    const [characterNames, setCharacterNames] = _react.useState([]);
+    const [selectedCharacter, setSelectedCharacter] = _react.useState("");
+    const [obj, setObj] = _react.useState({});
+    _react.useEffect(() => {
+      if (selectedCharacter == "") return;
+      fetch(`https://naruto--api.herokuapp.com/characters/${selectedCharacter}`).then(body => body.json()).then(data => {
+        setObj(data);
+      });
+    }, [selectedCharacter]);
+    _react.useEffect(() => {
+      fetch("https://naruto--api.herokuapp.com/characters").then(resp => resp.json()).then(data => {
+        setCharacterNames(data.names);
+      });
+    }, []);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 13
+        }
+      }, "Naruto API"), /*#__PURE__*/_reactDefault.default.createElement("label", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 13
+        }
+      }, "Characters", /*#__PURE__*/_reactDefault.default.createElement("select", {
+        id: "name",
+        value: selectedCharacter,
+        onChange: e => {
+          setSelectedCharacter(e.target.value);
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 17
+        }
+      }, characterNames.map(name => /*#__PURE__*/_reactDefault.default.createElement("option", {
+        key: name,
+        value: name,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 29
+        }
+      }, name)))), obj ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "character",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43,
+          columnNumber: 13
+        }
+      }, !obj.name ? /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45,
+          columnNumber: 36
+        }
+      }, "Select a Character") : /*#__PURE__*/_reactDefault.default.createElement(_CharacterDefault.default, {
+        name: obj.name,
+        summary: obj.summary,
+        images: obj.images,
+        jutsu: obj.images,
+        personalInfo: obj.personalInfo,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46,
+          columnNumber: 25
+        }
+      })) : "")
+    );
+  };
+  _s(App, "m9xvDwzc7LcD0Spn6t8x+RLZwcQ=");
+  _c = App;
+  _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(App, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 17
+    }
+  }), document.getElementById("root"));
+  var _c;
+  $RefreshReg$(_c, "App");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

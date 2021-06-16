@@ -1,0 +1,100 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js", _s = $RefreshSig$();
+  const Character = ({name}) => {
+    _s();
+    const [obj, setObj] = _react.useState({});
+    _react.useEffect(() => {
+      fetch(`https://naruto--api.herokuapp.com/characters/${name}`).then(body => body.json()).then(data => {
+        setObj(data);
+      });
+    }, []);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "character",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 9
+        }
+      }, !obj.hasOwnProperty("images") ? /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 47
+        }
+      }, "Loading") : /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "details",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15,
+          columnNumber: 17
+        }
+      }, obj.name), /*#__PURE__*/_reactDefault.default.createElement("img", {
+        src: obj.images ? obj.images[0] : "",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16,
+          columnNumber: 17
+        }
+      }), obj.personalInfo.age.length != 0 ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "ages",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18,
+          columnNumber: 21
+        }
+      }, obj.personalInfo.age.map(age => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 29
+        }
+      }, age))) : "", obj.personalInfo.summary ? /*#__PURE__*/_reactDefault.default.createElement("p", {
+        id: "summary",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 46
+        }
+      }, obj.personalInfo.summary) : "", /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 17
+        }
+      }, "Birthday: ", obj.personalInfo.birthdate)))
+    );
+  };
+  _s(Character, "qcpBKbtaFQ3ZzkiIuKn0jM3tExk=");
+  _c = Character;
+  exports.default = Character;
+  var _c;
+  $RefreshReg$(_c, "Character");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

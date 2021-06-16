@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin:0;
+}
+header {
+    border-bottom: 1px solid black;
+    padding: 1em;
+    margin: 1em auto;
+    text-align: center;
+}
+header label {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
+}
+#details {
+    display: grid;
+    grid-template-areas: "header header"
+    "left right"
+    "left right";
+    width: 30em;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1em;
+    grid-gap: 1em;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px;
+}
+#name {
+    grid-area: header;
+    text-align: center;
+}
+#details h3  {
+    font-size: 2em;
+}
+#left {
+    grid-area: left;
+}
+#right {
+    grid-area: right;
+}
+h4 {
+    text-align: center;
+}
+#jutsus , #affiliations{
+    text-align: left;
+    border-radius: 5px;
+    padding: .25em;
+    box-shadow: 3px 3px 2px;
+}
+#details div {
+    margin: .5em 0;
+}
+p {
+    padding: .2em;
+    margin: 10px;
+    line-height: 1.5em;
+    border-bottom: 1px solid black;
+}
+@media only screen and (max-width: 600px) {
+    #details {
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+    }
+    #left, #right {
+        grid-area: "";
+    }
+}
