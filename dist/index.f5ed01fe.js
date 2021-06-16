@@ -27739,7 +27739,6 @@ try {
       key: "render",
       value: function render() {
         var _this3 = this;
-        console.log(this.props);
         var active = this.state.active;
         var images = this.props.images;
         return (

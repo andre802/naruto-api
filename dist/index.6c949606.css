@@ -19,10 +19,22 @@ header label {
     justify-content: space-evenly;
     width: fit-content;
     margin: 0 auto;
+    align-items: center;
+    font-size: 1.2em;
+    background-color: black;
+    border: 1px solid black;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 3px 3px 5px black;
 }
 header select {
     margin: 0 5px;
     border-radius: 3px;
+    padding: 3px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 8px maroon;
+    min-width: 200px;
 }
 header h1 {
     width: fit-content;
@@ -42,16 +54,20 @@ header h1 {
     padding: 1em;
     grid-gap: 1em;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px brown;
+    box-shadow: 5px 3px 10px brown,
+    -2px 0px 3px brown;
 }
 img {
     border-radius: 5px;
     box-shadow: 3px 2px 5px brown;
     width: 300px;
 }
-#name {
+h3#name {
     grid-area: header;
     text-align: center;
+    border-bottom: 1px solid white;
+    width: fit-content;
+    margin: 0 auto;
 }
 #details h3  {
     font-size: 2em;
@@ -88,6 +104,14 @@ p {
 }
 .jutsu {
     border-bottom: 1px solid darkorange;
+    transition: linear .25s all;
+    border-radius: 5px;
+}
+.jutsu:hover {
+    background: darkorange;
+    color: black;
+    border-radius: 5px;
+    border-bottom: 1px solid maroon;
 }
 @media only screen and (max-width: 600px) {
     #details {
@@ -125,7 +149,7 @@ p {
     #right {
         margin-top: 0;
     }
-    #charPhoto {
+    div#charPhoto {
         min-height: 300px;
     }
     #affiliations p {
