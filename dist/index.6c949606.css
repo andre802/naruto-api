@@ -2,30 +2,43 @@
     padding: 0;
     margin:0;
 }
+html {
+    background: black;
+    color: white;
+}
 header {
-    border-bottom: 1px solid black;
-    padding: 1em;
-    margin: 1em auto;
+    border-bottom: 1px solid goldenrod;
+    background-color: white;
+    margin: 0 auto 1em;
+    padding-bottom: 1em;
     text-align: center;
+    color: black;
 }
 header label {
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    width: fit-content;
     margin: 0 auto;
+}
+header select {
+    margin: 0 5px;
 }
 #details {
     display: grid;
     grid-template-areas: "header header"
     "left right"
     "left right";
-    width: 30em;
+    max-width: 40em;
     text-align: center;
     margin: 1em auto;
     padding: 1em;
     grid-gap: 1em;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px;
+    box-shadow: 5px 5px 10px brown;
+}
+img {
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px darkgray;
 }
 #name {
     grid-area: header;
@@ -36,6 +49,7 @@ header label {
 }
 #left {
     grid-area: left;
+    max-width: 20em;
 }
 #right {
     grid-area: right;
@@ -56,16 +70,32 @@ p {
     padding: .2em;
     margin: 10px;
     line-height: 1.5em;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid orange;
 }
 @media only screen and (max-width: 600px) {
     #details {
         display: flex;
         flex-direction: column;
         width: 80vw;
+
     }
     #left, #right {
         grid-area: "";
+        max-width: auto;
+        margin: 0 auto;
+    }
+    #jutsus h4 {
+        font-size: 1.3em;
+        flex-basis: 100%;
+    }
+    #jutsus {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        margin: 5px;
     }
 }
 /*# sourceMappingURL=index.6c949606.css.map */

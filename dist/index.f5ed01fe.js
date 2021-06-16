@@ -1169,7 +1169,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-dom":"2sg1U","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./Character":"5Lzp3"}],"3b2NM":[function(require,module,exports) {
+},{"react":"3b2NM","react-dom":"2sg1U","./Character":"5Lzp3","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3b2NM":[function(require,module,exports) {
 "use strict";
 if ("development" === 'production') {
   module.exports = require('./cjs/react.production.min.js');
@@ -26362,6 +26362,282 @@ if ("development" !== "production") {
   })();
 }
 
+},{}],"5Lzp3":[function(require,module,exports) {
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js";
+  const Character = ({name, summary, images, jutsus, personalInfo}) => {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "character",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5,
+          columnNumber: 9
+        }
+      }, !images ? /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6,
+          columnNumber: 25
+        }
+      }, "Loading") : /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "details",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        id: "name",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 21
+        }
+      }, name), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "left",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("img", {
+        src: images ? images[0] : "",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10,
+          columnNumber: 25
+        }
+      }), personalInfo.age.length != 0 ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "ages",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 33
+        }
+      }, "Age"), personalInfo["age"].map(age => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15,
+          columnNumber: 37
+        }
+      }, age))) : "", jutsus.length != 0 ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "jutsus",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 33
+        }
+      }, "Jutsu"), jutsus.map(jutsu => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "jutsu",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 37
+        }
+      }, jutsu))) : ""), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "right",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 21
+        }
+      }, summary != "" ? /*#__PURE__*/_reactDefault.default.createElement("p", {
+        id: "summary",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 43
+        }
+      }, summary) : "", personalInfo.birthdate != "" ? /*#__PURE__*/_reactDefault.default.createElement("p", {
+        id: "birthday",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30,
+          columnNumber: 58
+        }
+      }, "Birthday: ", personalInfo.birthdate) : "", personalInfo.height.length ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "heights",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33,
+          columnNumber: 33
+        }
+      }, "Height"), personalInfo.height.map(h => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "height",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35,
+          columnNumber: 37
+        }
+      }, h))) : "", personalInfo.weight.length ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "weights",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41,
+          columnNumber: 33
+        }
+      }, "Weight"), personalInfo.weight.map(w => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "weight",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43,
+          columnNumber: 37
+        }
+      }, w))) : "", personalInfo.affiliation.length ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "affiliations",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49,
+          columnNumber: 33
+        }
+      }, "Affiliations"), personalInfo.affiliation.map(affil => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "affiliation",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51,
+          columnNumber: 37
+        }
+      }, affil))) : "", personalInfo["ninja rank"].length ? /*#__PURE__*/_reactDefault.default.createElement("div", {
+        id: "ranks",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58,
+          columnNumber: 33
+        }
+      }, "Rank"), personalInfo["ninja rank"].map(rank => /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "rank",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60,
+          columnNumber: 37
+        }
+      }, rank))) : "")))
+    );
+  };
+  _c = Character;
+  exports.default = Character;
+  var _c;
+  $RefreshReg$(_c, "Character");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5gA8y":[function(require,module,exports) {
+"use strict";
+
+exports.interopDefault = function (a) {
+  return a && a.__esModule ? a : {
+    default: a
+  };
+};
+
+exports.defineInteropFlag = function (a) {
+  Object.defineProperty(a, '__esModule', {
+    value: true
+  });
+};
+
+exports.exportAll = function (source, dest) {
+  Object.keys(source).forEach(function (key) {
+    if (key === 'default' || key === '__esModule') {
+      return;
+    } // Skip duplicate re-exports when they have the same value.
+
+
+    if (key in dest && dest[key] === source[key]) {
+      return;
+    }
+
+    Object.defineProperty(dest, key, {
+      enumerable: true,
+      get: function () {
+        return source[key];
+      }
+    });
+  });
+  return dest;
+};
+
+exports.export = function (dest, destName, get) {
+  Object.defineProperty(dest, destName, {
+    enumerable: true,
+    get: get
+  });
+};
 },{}],"4Jj4f":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
@@ -26519,282 +26795,6 @@ function registerExportsForReactRefresh(module) {
   }
 }
 
-},{"react-refresh/runtime":"592mh"}],"5gA8y":[function(require,module,exports) {
-"use strict";
-
-exports.interopDefault = function (a) {
-  return a && a.__esModule ? a : {
-    default: a
-  };
-};
-
-exports.defineInteropFlag = function (a) {
-  Object.defineProperty(a, '__esModule', {
-    value: true
-  });
-};
-
-exports.exportAll = function (source, dest) {
-  Object.keys(source).forEach(function (key) {
-    if (key === 'default' || key === '__esModule') {
-      return;
-    } // Skip duplicate re-exports when they have the same value.
-
-
-    if (key in dest && dest[key] === source[key]) {
-      return;
-    }
-
-    Object.defineProperty(dest, key, {
-      enumerable: true,
-      get: function () {
-        return source[key];
-      }
-    });
-  });
-  return dest;
-};
-
-exports.export = function (dest, destName, get) {
-  Object.defineProperty(dest, destName, {
-    enumerable: true,
-    get: get
-  });
-};
-},{}],"5Lzp3":[function(require,module,exports) {
-var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "/mnt/c/Users/justi/Desktop/Projects/naruto-api/lib/public/scripts/Character.js";
-  const Character = ({name, summary, images, jutsus, personalInfo}) => {
-    return (
-      /*#__PURE__*/_reactDefault.default.createElement("div", {
-        className: "character",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5,
-          columnNumber: 9
-        }
-      }, !images ? /*#__PURE__*/_reactDefault.default.createElement("h3", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6,
-          columnNumber: 25
-        }
-      }, "Loading") : /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "details",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7,
-          columnNumber: 17
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
-        id: "name",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8,
-          columnNumber: 21
-        }
-      }, name), /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "left",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("img", {
-        src: images ? images[0] : "",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10,
-          columnNumber: 25
-        }
-      }), personalInfo.age.length != 0 ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        className: "ages",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 12,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 13,
-          columnNumber: 33
-        }
-      }, "Age"), personalInfo["age"].map(age => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 15,
-          columnNumber: 37
-        }
-      }, age))) : "", jutsus != [] ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "jutsus",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21,
-          columnNumber: 33
-        }
-      }, "Jutsu"), jutsus.map(jutsu => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        className: "jutsu",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23,
-          columnNumber: 37
-        }
-      }, jutsu))) : ""), /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "right",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28,
-          columnNumber: 21
-        }
-      }, summary != "" ? /*#__PURE__*/_reactDefault.default.createElement("p", {
-        id: "summary",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29,
-          columnNumber: 43
-        }
-      }, summary) : "", personalInfo.birthdate != "" ? /*#__PURE__*/_reactDefault.default.createElement("p", {
-        id: "birthday",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30,
-          columnNumber: 58
-        }
-      }, "Birthday: ", personalInfo.birthdate) : "", personalInfo.height != [] ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "heights",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 33,
-          columnNumber: 33
-        }
-      }, "Height"), personalInfo.height.map(h => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        className: "height",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35,
-          columnNumber: 37
-        }
-      }, h))) : "", personalInfo.weight != [] ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "weights",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 40,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 41,
-          columnNumber: 33
-        }
-      }, "Weight"), personalInfo.weight.map(w => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        className: "weight",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 43,
-          columnNumber: 37
-        }
-      }, w))) : "", personalInfo.affiliation != [] ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "affiliations",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 48,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49,
-          columnNumber: 33
-        }
-      }, "Affiliations"), personalInfo.affiliation.map(affil => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        className: "affiliation",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 51,
-          columnNumber: 37
-        }
-      }, affil))) : "", personalInfo["ninja rank"] != [] ? /*#__PURE__*/_reactDefault.default.createElement("div", {
-        id: "ranks",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 57,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 58,
-          columnNumber: 33
-        }
-      }, "Rank"), personalInfo["ninja rank"].map(rank => /*#__PURE__*/_reactDefault.default.createElement("p", {
-        className: "rank",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 60,
-          columnNumber: 37
-        }
-      }, rank))) : "")))
-    );
-  };
-  _c = Character;
-  exports.default = Character;
-  var _c;
-  $RefreshReg$(_c, "Character");
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","react":"3b2NM","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}]},["1j6wU","4fQLb","63TMW"], "63TMW", "parcelRequiree198")
+},{"react-refresh/runtime":"592mh"}]},["1j6wU","4fQLb","63TMW"], "63TMW", "parcelRequiree198")
 
 //# sourceMappingURL=index.f5ed01fe.js.map
